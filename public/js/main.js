@@ -14,12 +14,12 @@ function onSubmit(e) {
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
     selectValue === 'blogIntro'
-      ? 'Write a SEO friendly blog intro about: ' + prompt + 'Keywords: AI, agriculture, biotech'
+      ? 'Write a SEO friendly blog intro about: ' +
+        prompt +
+        'Keywords: AI, agriculture, biotech'
       : selectValue === 'blogBody'
-      // ? 'Write a SEO friendly blog body about: ' + prompt
       ? 'Write a SEO friendly blog body from this blog intro: ' + prompt
       : selectValue === 'blogOutro'
-      // ? 'Write a SEO friendly blog outro about: ' + prompt
       ? 'Write a SEO friendly blog outro from this blog body: ' + prompt
       : 'Summarize this: ' + prompt;
 
@@ -83,11 +83,14 @@ function removeSpinner() {
 function handleSelectChange() {
   const selectValue = selectElement.value;
   selectValue === 'blogIntro'
-    ? (title.textContent = 'Generate a Blog Intro')
+    ? ((title.textContent = 'Generate a Blog Intro'),
+      (textareaElement.placeholder = 'Enter your blog topic'))
     : selectValue === 'blogBody'
-    ? (title.textContent = 'Generate a Blog Body')
+    ? ((title.textContent = 'Generate a Blog Body'),
+      (textareaElement.placeholder = 'Enter your blog intro'))
     : selectValue === 'blogOutro'
-    ? (title.textContent = 'Generate a Blog Outro')
+    ? ((title.textContent = 'Generate a Blog Outro'),
+      (textareaElement.placeholder = 'Enter your blog body'))
     : (title.textContent = 'Summarize Text');
 
   // selectValue === 'blogIntro'
