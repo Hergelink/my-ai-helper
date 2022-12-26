@@ -9,6 +9,7 @@ const spanElement = document.querySelector('#output');
 const submitButton = document.getElementById('submitBtn');
 const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
+const reGenerateBtn = document.getElementById('re-generateBtn');
 
 function onSubmit(e) {
   e.preventDefault();
@@ -139,6 +140,10 @@ function copyToClipboard() {
   navigator.clipboard.writeText(spanElement.value);
 }
 
+function reGenerate(e) {
+  onSubmit(e);
+}
+
 textareaElement.addEventListener('keypress', enterPress);
 
 document.querySelector('#image-form').addEventListener('submit', onSubmit);
@@ -148,3 +153,5 @@ selectElement.addEventListener('change', handleSelectChange);
 eraseButton.addEventListener('click', eraseContent);
 
 copyBtn.addEventListener('click', copyToClipboard);
+
+reGenerateBtn.addEventListener('click', reGenerate);

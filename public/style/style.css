@@ -102,6 +102,7 @@ label {
 }
 
 textarea {
+  display: block;
   width: 100%;
   min-height: 2rem;
   border: 0;
@@ -113,6 +114,7 @@ textarea {
 }
 
 .buttonDiv {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -172,9 +174,21 @@ button:hover {
 }
 
 #copyBtn {
-  width: 200px;
+  width: 185px;
   height: 35px;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
+}
+
+#re-generateBtn {
+  border: 1px solid navy;
+  background-color: transparent;
+  color: navy;
+}
+
+#re-generateBtn:hover {
+  border: 1px solid rgb(0, 0, 242);
+  background-color: transparent;
+  color: rgb(0, 0, 242);
 }
 
 footer {
@@ -218,6 +232,10 @@ footer a:hover {
   }
 
   #output {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  #copyBtn {
+    width: 200px;
   }
 }
