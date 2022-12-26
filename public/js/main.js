@@ -13,9 +13,15 @@ function onSubmit(e) {
 
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
-    selectValue === 'translate'
-      ? 'Translate this javascript code to python ' + prompt
-      : 'Summarize this:  ' + prompt;
+    selectValue === 'blogIntro'
+      ? 'Write a SEO friendly blog intro about: ' + prompt + 'Keywords: AI, agriculture, biotech'
+      : selectValue === 'blogBody'
+      // ? 'Write a SEO friendly blog body about: ' + prompt
+      ? 'Write a SEO friendly blog body from this blog intro: ' + prompt
+      : selectValue === 'blogOutro'
+      // ? 'Write a SEO friendly blog outro about: ' + prompt
+      ? 'Write a SEO friendly blog outro from this blog body: ' + prompt
+      : 'Summarize this: ' + prompt;
 
   if (prompt === '') {
     alert('Please provide code');
@@ -76,12 +82,20 @@ function removeSpinner() {
 
 function handleSelectChange() {
   const selectValue = selectElement.value;
-  selectValue === 'translate'
-    ? (title.textContent = 'Translate JavaScript => Python')
-    : (title.textContent = 'Summarize');
+  selectValue === 'blogIntro'
+    ? (title.textContent = 'Generate a Blog Intro')
+    : selectValue === 'blogBody'
+    ? (title.textContent = 'Generate a Blog Body')
+    : selectValue === 'blogOutro'
+    ? (title.textContent = 'Generate a Blog Outro')
+    : (title.textContent = 'Summarize Text');
 
-  selectValue === 'translate'
-    ? (submitButton.textContent = 'Translate')
+  // selectValue === 'blogIntro'
+  //   ? (submitButton.textContent = 'Generate')
+  //   : (submitButton.textContent = 'Summarize');
+
+  selectValue !== 'summarize'
+    ? (submitButton.textContent = 'Generate')
     : (submitButton.textContent = 'Summarize');
 }
 

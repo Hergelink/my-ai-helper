@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="style/spinner.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <script src="js/main.js" defer></script>
-    <title>Summarizer</title>
+    <title>My AI Helper</title>
   </head>
   <body>
     <header>
       <a href="/">
-        <img src="/images/summarizer-logo.png" alt="summarizer logo" />
+        <img src="/images/my-ai-helper-logo.png" alt="summarizer logo" />
       </a>
     </header>
 
@@ -26,10 +26,12 @@
             <div class="form-control">
               <select name="selection" id="selection">
                 <option selected value="summarize">Summarize</option>
-                <option value="translate">Translate js -> py</option>
+                <option value="blogIntro">Blog Intro</option>
+                <option value="blogBody">Blog Body</option>
+                <option value="blogOutro">Blog Outro</option>
               </select>
               <label for="prompt"
-                >Insert Text:
+                >Enter Text:
                 <textarea
                   type="text"
                   id="prompt"
@@ -49,7 +51,7 @@
           <div class="outputContainer">
             <textarea
               id="output"
-              placeholder="Summarized text will shown here:"
+              placeholder="Generated text will be shown here:"
               rows="30"
             ></textarea>
           </div>
