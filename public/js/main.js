@@ -1,33 +1,48 @@
+const title = document.querySelector('#title');
+const selectElement = document.querySelector('#selection');
+const toneOfVoiceLabelElement = document.getElementById('toneOfVoiceLabel');
+const toneOfVoice = document.getElementById('toneOfVoice');
+const keywordsElement = document.getElementById('keywordsLabel');
+const keywords = document.getElementById('keywords');
 const textareaElement = document.getElementById('prompt');
 const spanElement = document.querySelector('#output');
-const selectElement = document.querySelector('#selection');
-const title = document.querySelector('#title');
 const submitButton = document.getElementById('submitBtn');
 const eraseButton = document.getElementById('eraseBtn');
+const copyBtn = document.getElementById('copyBtn');
 
 function onSubmit(e) {
   e.preventDefault();
 
   spanElement.innerText = '';
   const selectValue = selectElement.value;
+  const toneOfVoiceValue = toneOfVoice.value;
+  const keywordValues = keywords.value;
+
+  let voiceInput = ''
+
+  toneOfVoiceValue === 'formal' ? voiceInput + "Tone of Voice: Formal. " :
+  toneOfVoiceValue === 'persuasive' ? voiceInput + "Tone of Voice: Persuasive. " :
+  toneOfVoiceValue === 'motivational' ? voiceInput + "Tone of Voice: Motivational. " :
+  toneOfVoiceValue === 'humorous' ? voiceInput + "Tone of Voice: Humorous. " :
+  toneOfVoiceValue === 'conversational' ? `${voiceInput + "Tone of Voice: Conversational."} ` :
+  voiceInput
 
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
     selectValue === 'blogIntro'
-      ? 'Write a SEO friendly blog intro about: ' +
-        prompt +
-        'Keywords: AI, agriculture, biotech'
+      ? `Keywords: ${keywordValues}. Write a SEO friendly blog intro about: ${prompt}`
       : selectValue === 'blogBody'
-      ? 'Write a SEO friendly blog body from this blog intro: ' + prompt
+      ? `Keywords: ${keywordValues}. Continue this text with a SEO friendly blog body: ${prompt}`
       : selectValue === 'blogOutro'
-      ? 'Write a SEO friendly blog outro from this blog body: ' + prompt
-      : 'Summarize this: ' + prompt;
+      ? `Keywords: ${keywordValues}. Continue this text with a SEO friendly blog outro: ${prompt}`
+      : `Summarize this: ${prompt}`;
 
   if (prompt === '') {
     alert('Please provide code');
     return;
   }
-
+  
+  console.log(editedPrompt);
   generateCorrectEnglish(editedPrompt);
 }
 
@@ -64,7 +79,7 @@ async function generateCorrectEnglish(editedPrompt) {
       } else {
         clearInterval(interval);
       }
-    }, 20);
+    }, 15);
 
     removeSpinner();
   } catch (error) {
@@ -84,7 +99,7 @@ function handleSelectChange() {
   const selectValue = selectElement.value;
   selectValue === 'blogIntro'
     ? ((title.textContent = 'Generate a Blog Intro'),
-      (textareaElement.placeholder = 'Enter your blog topic'))
+      (textareaElement.placeholder = 'Enter your blog topic/description'))
     : selectValue === 'blogBody'
     ? ((title.textContent = 'Generate a Blog Body'),
       (textareaElement.placeholder = 'Enter your blog intro'))
@@ -93,13 +108,13 @@ function handleSelectChange() {
       (textareaElement.placeholder = 'Enter your blog body'))
     : (title.textContent = 'Summarize Text');
 
-  // selectValue === 'blogIntro'
-  //   ? (submitButton.textContent = 'Generate')
-  //   : (submitButton.textContent = 'Summarize');
-
   selectValue !== 'summarize'
-    ? (submitButton.textContent = 'Generate')
-    : (submitButton.textContent = 'Summarize');
+    ? ((submitButton.textContent = 'Generate'),
+      (keywordsElement.style.display = 'block'),
+      (toneOfVoiceLabelElement.style.display = 'block'))
+    : ((submitButton.textContent = 'Summarize'),
+      (keywordsElement.style.display = 'none'),
+      (toneOfVoiceLabelElement.style.display = 'none'));
 }
 
 function eraseContent() {
@@ -115,6 +130,10 @@ function enterPress(e) {
   }
 }
 
+function copyToClipboard() {
+  navigator.clipboard.writeText(spanElement.value);
+}
+
 textareaElement.addEventListener('keypress', enterPress);
 
 document.querySelector('#image-form').addEventListener('submit', onSubmit);
@@ -122,3 +141,5 @@ document.querySelector('#image-form').addEventListener('submit', onSubmit);
 selectElement.addEventListener('change', handleSelectChange);
 
 eraseButton.addEventListener('click', eraseContent);
+
+copyBtn.addEventListener('click', copyToClipboard);
