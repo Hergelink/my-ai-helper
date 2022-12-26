@@ -11,6 +11,9 @@ const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
 const reGenerateBtn = document.getElementById('re-generateBtn');
 
+// create a rangle slider for temperature!
+
+
 function onSubmit(e) {
   e.preventDefault();
 
