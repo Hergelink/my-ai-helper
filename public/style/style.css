@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: rgb(0, 0, 132);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background: #f4f4f4;
+}
+
+/* Navbar */
+
+header {
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--primary-color); */
+  background-color: #f4f4f4;
+}
+
+header a {
+  width: 200px;
+}
+
+header a img {
+  width: 100%;
+}
+
+/* Main Area */
+
+.properEnglish {
+  margin-top: 2rem;
+}
+
+section {
+  width: 100%;
+  padding: 10px;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+form {
+  width: 100%;
+  margin-inline: auto;
+  font-size: 16px;
+}
+
+select {
+  display: block;
+  width: 150px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 16px;
+}
+
+option {
+  font-size: 16px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  min-height: 2rem;
+  border: 0;
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: 0.5rem;
+  resize: vertical;
+  font-size: 16px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 35px;
+  background-color: var(--primary-color);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+#eraseBtn {
+  color: rgb(209, 38, 38);
+  background-color: transparent;
+  border: 1px solid rgb(209, 38, 38);
+}
+
+#eraseBtn:hover {
+  color: white;
+  background-color: rgb(209, 38, 38);
+}
+
+button:hover {
+  background-color: rgb(34, 34, 206);
+}
+
+/* Output Container */
+.outputContainer {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#output {
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 4rem;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+footer {
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  text-decoration: underline dashed salmon;
+}
+
+@media (min-width: 768px) {
+  #sectionContainer {
+    display: flex;
+    justify-content: center;
+    margin-inline: 2rem;
+    margin-bottom: 8rem;
+  }
+
+  section {
+    max-width: 800px;
+    /* margin-inline: auto; */
+  }
+
+  .buttonDiv {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  #outputSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #output {
+    margin-bottom: 3rem;
+  }
+}

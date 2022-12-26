@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/spinner.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script src="js/main.js" defer></script>
+    <title>CodeAnalyzer</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/images/CodeAnalyzer-logo.png" alt="titcotour logo" />
+      </a>
+    </header>
+
+    <main>
+      <div id="sectionContainer">
+        <section class="properEnglish">
+          <form id="image-form">
+            <h2 id="title">Explain Code 🦜</h2>
+
+            <div class="form-control">
+              <select name="selection" id="selection">
+                <option selected value="correct">Explain</option>
+                <option value="translate">Translate js -> py</option>
+              </select>
+              <label for="prompt"
+                >Enter your code:
+                <textarea
+                  type="text"
+                  id="prompt"
+                  name="prompt"
+                  placeholder="insert code"
+                  rows="30"
+                ></textarea>
+              </label>
+            </div>
+            <div class="buttonDiv">
+              <button type="submit" id="submitBtn">Explain</button>
+              <button id="eraseBtn" type="reset">Erase All</button>
+            </div>
+          </form>
+        </section>
+        <section id="outputSection">
+          <div class="outputContainer">
+            <textarea
+              id="output"
+              placeholder="AI output will be shown here:"
+              rows="30"
+            ></textarea>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <a href="https://github.com/Hergelink" target="_blank">Created by Hergelink</a>
+    </footer>
+
+    <div class="spinner"></div>
+  </body>
+</html>

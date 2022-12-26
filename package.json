@@ -1,0 +1,29 @@
+{
+  "name": "titcotour-helper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "openai": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hergelink/Titcotour-Helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hergelink/Titcotour-Helper/issues"
+  },
+  "homepage": "https://github.com/Hergelink/Titcotour-Helper#readme",
+  "description": ""
+}
