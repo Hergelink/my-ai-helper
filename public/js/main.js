@@ -18,30 +18,35 @@ function onSubmit(e) {
   const toneOfVoiceValue = toneOfVoice.value;
   const keywordValues = keywords.value;
 
-  let voiceInput = ''
+  let voiceInput;
 
-  toneOfVoiceValue === 'formal' ? voiceInput + "Tone of Voice: Formal. " :
-  toneOfVoiceValue === 'persuasive' ? voiceInput + "Tone of Voice: Persuasive. " :
-  toneOfVoiceValue === 'motivational' ? voiceInput + "Tone of Voice: Motivational. " :
-  toneOfVoiceValue === 'humorous' ? voiceInput + "Tone of Voice: Humorous. " :
-  toneOfVoiceValue === 'conversational' ? `${voiceInput + "Tone of Voice: Conversational."} ` :
-  voiceInput
+  toneOfVoiceValue === 'formal'
+    ? (voiceInput = 'formal')
+    : toneOfVoiceValue === 'persuasive'
+    ? (voiceInput = 'persuasive')
+    : toneOfVoiceValue === 'motivational'
+    ? (voiceInput = 'motivational')
+    : toneOfVoiceValue === 'humorous'
+    ? (voiceInput = 'humorous')
+    : toneOfVoiceValue === 'conversational'
+    ? (voiceInput = 'conversational')
+    : voiceInput;
 
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
     selectValue === 'blogIntro'
-      ? `Keywords: ${keywordValues}. Write a SEO friendly blog intro about: ${prompt}`
+      ? `Keywords: ${keywordValues}.\n\nWrite a ${voiceInput} and SEO friendly blog intro about: ${prompt}`
       : selectValue === 'blogBody'
-      ? `Keywords: ${keywordValues}. Continue this text with a SEO friendly blog body: ${prompt}`
+      ? `Keywords: ${keywordValues}.\n\nContinue this blog intro with a ${voiceInput} and SEO friendly blog body: ${prompt}`
       : selectValue === 'blogOutro'
-      ? `Keywords: ${keywordValues}. Continue this text with a SEO friendly blog outro: ${prompt}`
+      ? `Keywords: ${keywordValues}.\n\nContinue this blog body with a ${voiceInput} and SEO friendly blog outro: ${prompt}`
       : `Summarize this: ${prompt}`;
 
   if (prompt === '') {
     alert('Please provide code');
     return;
   }
-  
+
   console.log(editedPrompt);
   generateCorrectEnglish(editedPrompt);
 }
