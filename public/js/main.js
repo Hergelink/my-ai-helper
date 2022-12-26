@@ -1,3 +1,4 @@
+const textareaElement = document.getElementById('prompt');
 const spanElement = document.querySelector('#output');
 const selectElement = document.querySelector('#selection');
 const title = document.querySelector('#title');
@@ -14,7 +15,7 @@ function onSubmit(e) {
   const editedPrompt =
     selectValue === 'translate'
       ? 'Translate this javascript code to python ' + prompt
-      : 'Explain what this code does step by step:  ' + prompt;
+      : 'Summarize this:  ' + prompt;
 
   if (prompt === '') {
     alert('Please provide code');
@@ -73,31 +74,33 @@ function removeSpinner() {
   document.querySelector('.spinner').classList.remove('show');
 }
 
-function copyToClipboard() {
-  const promptValue = document.getElementById('output').innerText;
-
-  navigator.clipboard.writeText(promptValue);
-}
-
 function handleSelectChange() {
   const selectValue = selectElement.value;
   selectValue === 'translate'
     ? (title.textContent = 'Translate JavaScript => Python')
-    : (title.textContent = 'Explain Code 🦜');
+    : (title.textContent = 'Summarize');
 
   selectValue === 'translate'
     ? (submitButton.textContent = 'Translate')
-    : (submitButton.textContent = 'Explain');
+    : (submitButton.textContent = 'Summarize');
 }
 
 function eraseContent() {
-
   spanElement.innerText = '';
 }
 
-document.querySelector('#image-form').addEventListener('submit', onSubmit);
+// Submit form when pressed on enter on the keyboard
+function enterPress(e) {
+  if (e.key === 'Enter') {
+    onSubmit(e);
+  } else {
+    return;
+  }
+}
 
-spanElement.addEventListener('click', copyToClipboard);
+textareaElement.addEventListener('keypress', enterPress);
+
+document.querySelector('#image-form').addEventListener('submit', onSubmit);
 
 selectElement.addEventListener('change', handleSelectChange);
 

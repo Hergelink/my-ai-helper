@@ -13,7 +13,7 @@
   <body>
     <header>
       <a href="/">
-        <img src="/images/CodeAnalyzer-logo.png" alt="summarizer logo" />
+        <img src="/images/summarizer-logo.png" alt="summarizer logo" />
       </a>
     </header>
 
@@ -21,26 +21,26 @@
       <div id="sectionContainer">
         <section class="properEnglish">
           <form id="image-form">
-            <h2 id="title">Explain Code 🦜</h2>
+            <h2 id="title">Summarize Text</h2>
 
             <div class="form-control">
               <select name="selection" id="selection">
-                <option selected value="correct">Explain</option>
+                <option selected value="summarize">Summarize</option>
                 <option value="translate">Translate js -> py</option>
               </select>
               <label for="prompt"
-                >Enter your code:
+                >Insert Text:
                 <textarea
                   type="text"
                   id="prompt"
                   name="prompt"
-                  placeholder="insert code"
+                  placeholder="Your text to be summarized"
                   rows="30"
                 ></textarea>
               </label>
             </div>
             <div class="buttonDiv">
-              <button type="submit" id="submitBtn">Explain</button>
+              <button type="submit" id="submitBtn">Summarize</button>
               <button id="eraseBtn" type="reset">Erase All</button>
             </div>
           </form>
@@ -49,7 +49,7 @@
           <div class="outputContainer">
             <textarea
               id="output"
-              placeholder="AI output will be shown here:"
+              placeholder="Summarized text will shown here:"
               rows="30"
             ></textarea>
           </div>

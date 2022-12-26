@@ -13,17 +13,15 @@ const codeHelper = async (req, res) => {
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: userPrompt,
-      temperature: 0,
+      temperature: 0.7,
       max_tokens: 256,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
+      best_of: 1,
     });
 
-    const aiOutput = response.data.choices[0].text.replace(
-      /\b([0-9]|[1-9][0-9])\b\./g,
-      '\n$&'
-    );
+    const aiOutput = response.data.choices[0].text;
 
     res.status(200).json({
       success: true,
