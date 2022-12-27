@@ -1,7 +1,7 @@
 const express = require('express');
-const { codeHelper } = require('../controllers/openaiController');
+const { textGenerator } = require('../controllers/openaiController');
 const router = express.Router();
 
-router.post('/codehelp', codeHelper);
+router.post('/generatetext', textGenerator);
 
 module.exports = router;

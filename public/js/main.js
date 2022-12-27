@@ -4,6 +4,8 @@ const toneOfVoiceLabelElement = document.getElementById('toneOfVoiceLabel');
 const toneOfVoice = document.getElementById('toneOfVoice');
 const keywordsElement = document.getElementById('keywordsLabel');
 const keywords = document.getElementById('keywords');
+const sliderContainer = document.querySelector('.sliderContainer');
+const slider = document.getElementById('myRange');
 const textareaElement = document.getElementById('prompt');
 const spanElement = document.querySelector('#output');
 const submitButton = document.getElementById('submitBtn');
@@ -13,7 +15,6 @@ const reGenerateBtn = document.getElementById('re-generateBtn');
 
 // create a rangle slider for temperature!
 
-
 function onSubmit(e) {
   e.preventDefault();
 
@@ -21,29 +22,36 @@ function onSubmit(e) {
   const selectValue = selectElement.value;
   const toneOfVoiceValue = toneOfVoice.value;
   const keywordValues = keywords.value;
+  const sliderValue = slider.value;
 
   let voiceInput;
 
   toneOfVoiceValue === 'formal'
-    ? (voiceInput = 'formal')
+    ? (voiceInput = ' formal and')
     : toneOfVoiceValue === 'persuasive'
-    ? (voiceInput = 'persuasive')
+    ? (voiceInput = ' persuasive and')
     : toneOfVoiceValue === 'motivational'
-    ? (voiceInput = 'motivational')
+    ? (voiceInput = ' motivational and')
     : toneOfVoiceValue === 'humorous'
-    ? (voiceInput = 'humorous')
+    ? (voiceInput = ' humorous and')
     : toneOfVoiceValue === 'conversational'
-    ? (voiceInput = 'conversational')
-    : voiceInput;
+    ? (voiceInput = ' conversational and')
+    : (voiceInput = '');
+
+  let keywordInput;
+
+  keywordValues.length > 0
+    ? (keywordInput = 'Keywords: ' + keywordValues + '. \n\n')
+    : (keywordInput = '');
 
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
     selectValue === 'blogIntro'
-      ? `Keywords: ${keywordValues}.\n\nWrite a ${voiceInput} and SEO friendly blog intro about: ${prompt}`
+      ? `${keywordInput}Write a${voiceInput} SEO friendly blog intro about: ${prompt}`
       : selectValue === 'blogBody'
-      ? `Keywords: ${keywordValues}.\n\nContinue this blog intro with a ${voiceInput} and SEO friendly blog body: ${prompt}`
+      ? `${keywordInput}Continue this blog intro with a${voiceInput} SEO friendly long form blog body: ${prompt}`
       : selectValue === 'blogOutro'
-      ? `Keywords: ${keywordValues}.\n\nContinue this blog body with a ${voiceInput} and SEO friendly blog outro: ${prompt}`
+      ? `${keywordInput}Continue this blog body with a${voiceInput} SEO friendly blog outro: ${prompt}`
       : `Summarize this: ${prompt}`;
 
   if (prompt === '') {
@@ -51,21 +59,21 @@ function onSubmit(e) {
     return;
   }
 
-  console.log(editedPrompt);
-  generateCorrectEnglish(editedPrompt);
+  generateText(editedPrompt, sliderValue);
 }
 
-async function generateCorrectEnglish(editedPrompt) {
+async function generateText(editedPrompt, sliderValue) {
   try {
     showSpinner();
 
-    const response = await fetch('/openai/codehelp', {
+    const response = await fetch('/openai/generatetext', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         editedPrompt,
+        sliderValue,
       }),
     });
 
@@ -120,14 +128,22 @@ function handleSelectChange() {
   selectValue !== 'summarize'
     ? ((submitButton.textContent = 'Generate'),
       (keywordsElement.style.display = 'block'),
-      (toneOfVoiceLabelElement.style.display = 'block'))
+      (toneOfVoiceLabelElement.style.display = 'block'),
+      (sliderContainer.style.display = 'flex'))
     : ((submitButton.textContent = 'Summarize'),
       (keywordsElement.style.display = 'none'),
-      (toneOfVoiceLabelElement.style.display = 'none'));
+      (toneOfVoiceLabelElement.style.display = 'none'),
+      (sliderContainer.style.display = 'none'));
 }
 
-function eraseContent() {
-  spanElement.innerText = '';
+function eraseContent(e) {
+  e.preventDefault();
+
+  toneOfVoice.value = 'default';
+  keywords.value = '';
+  slider.value = 0.5;
+  textareaElement.value = '';
+  spanElement.value = '';
 }
 
 // Submit form when pressed on enter on the keyboard

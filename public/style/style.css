@@ -80,6 +80,7 @@ select {
   margin-top: 0.4rem;
   margin-bottom: 1rem;
   font-size: 16px;
+  cursor: pointer;
 }
 
 option {
@@ -99,6 +100,36 @@ label {
 
 #keywordsLabel {
   display: none;
+}
+
+.sliderContainer {
+  width: 100%;
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+}
+
+.sliderlabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sliderlabel h3 {
+  font-size: 16px;
+}
+
+#myRange {
+  margin-top: 0;
+  padding: 0;
+  opacity: 0.5;
+  cursor: pointer;
+  accent-color: navy;
+}
+
+#myRange:hover {
+  accent-color: rgb(0, 0, 236);
+  opacity: 1;
 }
 
 textarea {

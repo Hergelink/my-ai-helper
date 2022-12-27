@@ -6,14 +6,17 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const codeHelper = async (req, res) => {
+const textGenerator = async (req, res) => {
   const userPrompt = req.body.editedPrompt;
+  const tempValue = req.body.sliderValue;
+  const temp = Number(tempValue);
+
 
   try {
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: userPrompt,
-      temperature: 0.7,
+      temperature: temp,
       max_tokens: 256,
       top_p: 1,
       frequency_penalty: 0,
@@ -42,4 +45,4 @@ const codeHelper = async (req, res) => {
   }
 };
 
-module.exports = { codeHelper };
+module.exports = { textGenerator };
