@@ -27,7 +27,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--primary-color); */
   background-color: #f4f4f4;
 }
 
@@ -189,7 +188,6 @@ button:hover {
 }
 
 #output {
-  /* margin-bottom: 2rem; */
   display: flex;
   justify-content: flex-start;
   width: 100%;
@@ -247,7 +245,6 @@ footer a:hover {
 
   section {
     max-width: 800px;
-    /* margin-inline: auto; */
   }
 
   #myRange {

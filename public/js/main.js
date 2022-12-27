@@ -13,8 +13,6 @@ const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
 const reGenerateBtn = document.getElementById('re-generateBtn');
 
-// create a rangle slider for temperature!
-
 function onSubmit(e) {
   e.preventDefault();
 
@@ -46,7 +44,9 @@ function onSubmit(e) {
 
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
-    selectValue === 'blogIntro'
+    selectValue === 'blogTopic'
+      ? `Write 5 blog topic ideas about: ${prompt}`
+      : selectValue === 'blogIntro'
       ? `${keywordInput}Write a${voiceInput} SEO friendly blog intro about: ${prompt}`
       : selectValue === 'blogBody'
       ? `${keywordInput}Continue this blog intro with a${voiceInput} SEO friendly long form blog body: ${prompt}`
@@ -59,10 +59,10 @@ function onSubmit(e) {
     return;
   }
 
-  generateText(editedPrompt, sliderValue);
+  generateText(editedPrompt, sliderValue, selectValue);
 }
 
-async function generateText(editedPrompt, sliderValue) {
+async function generateText(editedPrompt, sliderValue, selectValue) {
   try {
     showSpinner();
 
@@ -74,6 +74,7 @@ async function generateText(editedPrompt, sliderValue) {
       body: JSON.stringify({
         editedPrompt,
         sliderValue,
+        selectValue,
       }),
     });
 
@@ -86,7 +87,7 @@ async function generateText(editedPrompt, sliderValue) {
 
     const aiOutput = data.data;
 
-    //  below lines are for writing like function for the ai output
+    //  writing like function for the ai output
     let index = 0;
 
     let interval = setInterval(() => {

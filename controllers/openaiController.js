@@ -9,8 +9,8 @@ const openai = new OpenAIApi(configuration);
 const textGenerator = async (req, res) => {
   const userPrompt = req.body.editedPrompt;
   const tempValue = req.body.sliderValue;
+  const selectValueInput = req.body.selectValue;
   const temp = Number(tempValue);
-
 
   try {
     const response = await openai.createCompletion({
@@ -24,12 +24,26 @@ const textGenerator = async (req, res) => {
       best_of: 1,
     });
 
-    const aiOutput = response.data.choices[0].text;
+    // const aiOutput = response.data.choices[0].text;
 
-    res.status(200).json({
-      success: true,
-      data: aiOutput,
-    });
+    if (selectValueInput === 'blogTopic') {
+      const aiOutput = response.data.choices[0].text.replace(
+        /\b([0-9]|[1-9][0-9])\b\./g,
+        '\n$&'
+      );
+
+      res.status(200).json({
+        success: true,
+        data: aiOutput,
+      });
+    } else {
+      const aiOutput = response.data.choices[0].text;
+
+      res.status(200).json({
+        success: true,
+        data: aiOutput,
+      });
+    }
   } catch (error) {
     if (error.response) {
       console.log(error.response.status);
