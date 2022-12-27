@@ -121,7 +121,7 @@ label {
 #myRange {
   margin-top: 0;
   padding: 0;
-  opacity: 0.5;
+  opacity: 0.9;
   cursor: pointer;
   accent-color: navy;
 }
@@ -248,6 +248,10 @@ footer a:hover {
   section {
     max-width: 800px;
     /* margin-inline: auto; */
+  }
+
+  #myRange {
+    opacity: 0.5;
   }
 
   .buttonDiv {
