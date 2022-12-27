@@ -118,7 +118,11 @@ function removeSpinner() {
 
 function handleSelectChange() {
   const selectValue = selectElement.value;
-  selectValue === 'blogIntro'
+
+  selectValue === 'blogTopic'
+    ? ((title.textContent = 'Generate a Blog Topics'),
+      (textareaElement.placeholder = 'Describe your blog idea'))
+    : selectValue === 'blogIntro'
     ? ((title.textContent = 'Generate a Blog Intro'),
       (textareaElement.placeholder = 'Enter your blog topic/description'))
     : selectValue === 'blogBody'
@@ -168,7 +172,6 @@ function reGenerate(e) {
 }
 
 // textEditor
-
 
 textareaElement.addEventListener('keypress', enterPress);
 
