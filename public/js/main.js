@@ -13,6 +13,9 @@ const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
 const reGenerateBtn = document.getElementById('re-generateBtn');
 
+// add paraphraser
+// add text expender
+
 function onSubmit(e) {
   e.preventDefault();
 
@@ -163,6 +166,9 @@ function copyToClipboard() {
 function reGenerate(e) {
   onSubmit(e);
 }
+
+// textEditor
+
 
 textareaElement.addEventListener('keypress', enterPress);
 
