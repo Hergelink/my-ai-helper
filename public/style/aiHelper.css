@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 *,
 *:before,
@@ -18,11 +18,11 @@ body {
   line-height: 1.5;
   color: #333;
   background: #f4f4f4;
-} */
+}
 
 /* Navbar */
 
-/* header {
+header {
   height: 6rem;
   display: flex;
   justify-content: center;
@@ -31,12 +31,14 @@ body {
 }
 
 header a {
+  display: block;
   width: 200px;
 }
 
 header a img {
+  display: block;
   width: 100%;
-} */
+}
 
 /* Main Area */
 
@@ -232,7 +234,7 @@ button:hover {
   color: rgb(0, 0, 242);
 }
 
-/* footer {
+footer {
   height: 6rem;
   display: flex;
   justify-content: center;
@@ -246,9 +248,9 @@ footer a {
 
 footer a:hover {
   text-decoration: underline dashed salmon;
-} */
+}
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   #sectionContainer {
     display: flex;
     justify-content: center;
@@ -285,5 +287,19 @@ footer a:hover {
 
   #copyBtn {
     width: 200px;
+  }
+}
+
+
+@media screen and (min-width: 64rem) {
+  #sectionContainer {
+    margin-inline: 3rem;
+  }
+}
+
+
+@media screen and (min-width: 75rem) {
+  #sectionContainer {
+    margin-inline: 4rem;
   }
 }

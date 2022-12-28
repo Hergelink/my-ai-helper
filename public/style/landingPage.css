@@ -196,6 +196,10 @@ TABLE OF CONTENT
     margin: 0 auto;
     max-width: 100%;
   }
+
+  .siteLogo {
+    width: 200px;
+  }
   
   /*--------------------------------------------------------------
   5.0 LAYOUT
@@ -259,7 +263,7 @@ TABLE OF CONTENT
   
   .ui-component-button-small {
     font-size: var(--ui-typography-s);
-    padding: .5rem .75rem .5625rem;
+    padding: .5rem 1.75rem .5625rem;
   }
   
   /*--------------------------------------------------------------
