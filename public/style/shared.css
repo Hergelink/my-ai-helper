@@ -37,19 +37,4 @@ header a img {
   width: 100%;
 }
 
-/* Footer */
-footer {
-  height: 6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-footer a {
-  text-decoration: none;
-  color: black;
-}
-
-footer a:hover {
-  text-decoration: underline dashed rgb(12, 12, 229);
-}
