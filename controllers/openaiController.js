@@ -9,22 +9,31 @@ const openai = new OpenAIApi(configuration);
 const textGenerator = async (req, res) => {
   const userPrompt = req.body.editedPrompt;
   const tempValue = req.body.sliderValue;
-  const selectValueInput = req.body.selectValue;
   const temp = Number(tempValue);
+  const tokenValue = req.body.tokenSliderValue;
+  const token = Number(tokenValue);
+  const selectValueInput = req.body.selectValue;
+
+  let validToken;
+
+  if (userPrompt.length + token > 4000) {
+    validToken = token - userPrompt.length;
+  } else {
+    validToken = token;
+  }
 
   try {
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: userPrompt,
       temperature: temp,
-      max_tokens: 256,
+      max_tokens: validToken,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
       best_of: 1,
     });
 
-    // const aiOutput = response.data.choices[0].text;
 
     if (selectValueInput === 'blogTopic') {
       const aiOutput = response.data.choices[0].text.replace(

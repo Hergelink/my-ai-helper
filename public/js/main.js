@@ -6,6 +6,7 @@ const keywordsElement = document.getElementById('keywordsLabel');
 const keywords = document.getElementById('keywords');
 const sliderContainer = document.querySelector('.sliderContainer');
 const slider = document.getElementById('myRange');
+const tokenSlider = document.getElementById('mytokenRange');
 const textareaElement = document.getElementById('prompt');
 const spanElement = document.querySelector('#output');
 const submitButton = document.getElementById('submitBtn');
@@ -23,6 +24,7 @@ function onSubmit(e) {
   const toneOfVoiceValue = toneOfVoice.value;
   const keywordValues = keywords.value;
   const sliderValue = slider.value;
+  const tokenSliderValue = tokenSlider.value;
 
   let voiceInput;
 
@@ -56,18 +58,24 @@ function onSubmit(e) {
       ? `${keywordInput}Continue this blog body with a${voiceInput} SEO friendly blog outro: ${prompt}`
       : selectValue === 'paraphraser'
       ? `${keywordInput}Paraphrase this text with a${voiceInput} SEO friendly long form paragraph: ${prompt}`
+      : selectValue === 'expand'
+      ? `${keywordInput}Expand this text with a${voiceInput} SEO friendly long form paragraph: ${prompt}`
       : `Summarize this: ${prompt}`;
 
-  console.log(editedPrompt);
   if (prompt === '') {
     alert('Please provide code');
     return;
   }
 
-  generateText(editedPrompt, sliderValue, selectValue);
+  generateText(editedPrompt, sliderValue, tokenSliderValue, selectValue);
 }
 
-async function generateText(editedPrompt, sliderValue, selectValue) {
+async function generateText(
+  editedPrompt,
+  sliderValue,
+  tokenSliderValue,
+  selectValue
+) {
   try {
     showSpinner();
 
@@ -79,6 +87,7 @@ async function generateText(editedPrompt, sliderValue, selectValue) {
       body: JSON.stringify({
         editedPrompt,
         sliderValue,
+        tokenSliderValue,
         selectValue,
       }),
     });
@@ -136,6 +145,9 @@ function handleSelectChange() {
     : selectValue === 'paraphraser'
     ? ((title.textContent = 'Paraphrase Text'),
       (textareaElement.placeholder = 'Enter text to be paraphrased'))
+    : selectValue === 'expand'
+    ? ((title.textContent = 'Expand Text'),
+      (textareaElement.placeholder = 'Enter text to be expended'))
     : (title.textContent = 'Summarize Text');
 
   selectValue !== 'summarize'

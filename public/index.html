@@ -32,6 +32,7 @@
                   <option value="blogBody">Blog Body</option>
                   <option value="blogOutro">Blog Outro</option>
                   <option value="paraphraser">Paraphraser</option>
+                  <option value="expand">Expand</option>
                 </select>
               </label>
               <label for="toneOfVoice" id="toneOfVoiceLabel"
@@ -68,7 +69,24 @@
                   class="slider"
                   id="myRange"
                 />
+                <div class="sliderTokenContainer">
+                  <div class="sliderlabel">
+                    <h3>Short</h3>
+                    <h3>Long</h3>
+                  </div>
+
+                  <input
+                    type="range"
+                    min="1"
+                    max="4000"
+                    value="256"
+                    step="1"
+                    class="slider"
+                    id="mytokenRange"
+                  />
+                </div>
               </div>
+
               <label for="prompt"
                 >Enter Text:
                 <textarea
