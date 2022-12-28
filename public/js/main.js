@@ -13,7 +13,6 @@ const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
 const reGenerateBtn = document.getElementById('re-generateBtn');
 
-// add paraphraser
 // add text expender
 
 function onSubmit(e) {
@@ -28,21 +27,21 @@ function onSubmit(e) {
   let voiceInput;
 
   toneOfVoiceValue === 'formal'
-    ? (voiceInput = ' formal and')
+    ? (voiceInput = ' formal tone of voice and')
     : toneOfVoiceValue === 'persuasive'
-    ? (voiceInput = ' persuasive and')
+    ? (voiceInput = ' persuasive tone of voice and')
     : toneOfVoiceValue === 'motivational'
-    ? (voiceInput = ' motivational and')
+    ? (voiceInput = ' motivational tone of voice and')
     : toneOfVoiceValue === 'humorous'
-    ? (voiceInput = ' humorous and')
+    ? (voiceInput = ' humorous tone of voice and')
     : toneOfVoiceValue === 'conversational'
-    ? (voiceInput = ' conversational and')
+    ? (voiceInput = ' conversational tone of voice and')
     : (voiceInput = '');
 
   let keywordInput;
 
   keywordValues.length > 0
-    ? (keywordInput = 'Keywords: ' + keywordValues + '. \n\n')
+    ? (keywordInput = 'Keywords to be highlighted: ' + keywordValues + '. \n\n')
     : (keywordInput = '');
 
   const prompt = document.querySelector('#prompt').value;
@@ -55,8 +54,11 @@ function onSubmit(e) {
       ? `${keywordInput}Continue this blog intro with a${voiceInput} SEO friendly long form blog body: ${prompt}`
       : selectValue === 'blogOutro'
       ? `${keywordInput}Continue this blog body with a${voiceInput} SEO friendly blog outro: ${prompt}`
+      : selectValue === 'paraphraser'
+      ? `${keywordInput}Paraphrase this text with a${voiceInput} SEO friendly long form paragraph: ${prompt}`
       : `Summarize this: ${prompt}`;
 
+  console.log(editedPrompt);
   if (prompt === '') {
     alert('Please provide code');
     return;
@@ -131,6 +133,9 @@ function handleSelectChange() {
     : selectValue === 'blogOutro'
     ? ((title.textContent = 'Generate a Blog Outro'),
       (textareaElement.placeholder = 'Enter your blog body'))
+    : selectValue === 'paraphraser'
+    ? ((title.textContent = 'Paraphrase Text'),
+      (textareaElement.placeholder = 'Enter text to be paraphrased'))
     : (title.textContent = 'Summarize Text');
 
   selectValue !== 'summarize'
@@ -170,8 +175,6 @@ function copyToClipboard() {
 function reGenerate(e) {
   onSubmit(e);
 }
-
-// textEditor
 
 textareaElement.addEventListener('keypress', enterPress);
 
