@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 *,
 *:before,
@@ -18,11 +18,11 @@ body {
   line-height: 1.5;
   color: #333;
   background: #f4f4f4;
-}
+} */
 
 /* Navbar */
 
-header {
+/* header {
   height: 6rem;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@ header a {
 
 header a img {
   width: 100%;
-}
+} */
 
 /* Main Area */
 
@@ -232,7 +232,7 @@ button:hover {
   color: rgb(0, 0, 242);
 }
 
-footer {
+/* footer {
   height: 6rem;
   display: flex;
   justify-content: center;
@@ -246,7 +246,7 @@ footer a {
 
 footer a:hover {
   text-decoration: underline dashed salmon;
-}
+} */
 
 @media (min-width: 768px) {
   #sectionContainer {

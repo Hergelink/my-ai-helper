@@ -1,130 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- META -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="uisual" content="Made with Uisual (uisual.com)" />
+    <meta name="author" content="Hergelink" />
+    <meta
+      name="description"
+      content="Generate high-quality blog posts and text content with My-Ai-Helper"
+    />
+    <meta name="referrer" content="unsafe-url" />
+    <meta name="robots" content="index, follow" />
+    <title>My Ai Helper</title>
+    <!-- SPEED -->
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- LINK -->
+    <link rel="me" href="#" />
+    <link rel="canonical" href="#" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./images/favicon.ico"
+      sizes="48x48"
+    />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <!-- PERFORMANCE -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+    <link rel="stylesheet" href="style/shared.css" />
+    <link rel="stylesheet" href="style/landingPage.css" />
+    <!-- above pasted -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/spinner.css" />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <script src="js/main.js" defer></script>
-    <title>My Ai Helper</title>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <a href="/">
         <img src="/images/my-ai-helper-logo.png" alt="summarizer logo" />
       </a>
-    </header>
-
-    <main>
+    </header> -->
+    <!-- <main>
       <a href="/ai-helper">go to ai helper</a>
-      <div id="sectionContainer">
-        <section class="properEnglish">
-          <form id="image-form">
-            <h2 id="title">Summarize Text</h2>
-            <div class="form-control">
-              <label for="selection"
-                >Type:
-                <select name="selection" id="selection">
-                  <option selected value="summarize">Summarize</option>
-                  <option value="blogTopic">Blog Topic</option>
-                  <option value="blogIntro">Blog Intro</option>
-                  <option value="blogBody">Blog Body</option>
-                  <option value="blogOutro">Blog Outro</option>
-                  <option value="paraphraser">Paraphraser</option>
-                  <option value="expand">Expand</option>
-                </select>
-              </label>
-              <label for="toneOfVoice" id="toneOfVoiceLabel"
-                >Tone-of-Voice (Optional)
-                <select name="selection" id="toneOfVoice">
-                  <option selected value="default">Default</option>
-                  <option value="formal">Formal</option>
-                  <option value="persuasive">Persuasive</option>
-                  <option value="motivational">Motivational</option>
-                  <option value="humorous">Humorous</option>
-                  <option value="conversational">Conversational</option>
-                </select>
-              </label>
-              <label for="keywords" id="keywordsLabel"
-                >Keywords (Optional)
-                <input
-                  type="text"
-                  id="keywords"
-                  placeholder="AI, Agriculture, Tourism etc."
-                />
-              </label>
-              <div class="sliderContainer">
-                <div class="sliderlabel">
-                  <h3>Deterministic</h3>
-                  <h3>Creative</h3>
-                </div>
-
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  value="0.5"
-                  step="0.01"
-                  class="slider"
-                  id="myRange"
-                />
-                <div class="sliderTokenContainer">
-                  <div class="sliderlabel">
-                    <h3>Short</h3>
-                    <h3>Long</h3>
-                  </div>
-
-                  <input
-                    type="range"
-                    min="1"
-                    max="4000"
-                    value="256"
-                    step="1"
-                    class="slider"
-                    id="mytokenRange"
-                  />
-                </div>
-              </div>
-
-              <label for="prompt"
-                >Enter Text:
-                <textarea
-                  type="text"
-                  id="prompt"
-                  name="prompt"
-                  placeholder="Your text to be summarized"
-                  rows="30"
-                ></textarea>
-              </label>
-            </div>
-            <div class="buttonDiv">
-              <button type="submit" id="submitBtn">Summarize</button>
-              <button id="eraseBtn" type="reset">Erase All</button>
-            </div>
-          </form>
-        </section>
-        <section id="outputSection">
-          <div class="outputContainer">
-            <textarea
-              id="output"
-              placeholder="Generated text will be shown here:"
-              rows="30"
-            ></textarea>
-          </div>
-          <div class="buttonDiv">
-            <button type="button" id="copyBtn">Copy to Clipboard</button>
-            <button type="button" id="re-generateBtn">re-generate</button>
-          </div>
-        </section>
-      </div>
-    </main>
-    <footer>
+    </main> -->
+    <!-- <footer>
       <a href="https://github.com/Hergelink" target="_blank"
         >Created by Hergelink</a
       >
+    </footer> -->
+    <!-- <div class="spinner"></div> -->
+    <!-- PASTED BELOW -->
+    <header role="banner" class="ui-section-header">
+      <div class="ui-layout-container">
+        <div class="ui-section-header__layout ui-layout-flex">
+          <!-- LOGO -->
+          <a href="/" role="link" aria-label="#">
+            <img src="/images/my-ai-helper-logo.png" alt="ai helper logo" />
+          </a>
+          <!-- MENU -->
+          <a
+            href="#"
+            role="link"
+            aria-label="#"
+            class="ui-component-button ui-component-button-small ui-component-button-primary"
+            >Login</a
+          >
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      <section class="ui-section-hero">
+        <div class="ui-layout-container">
+          <!-- COPYWRITING -->
+          <div class="ui-layout-column-6 ui-layout-column-center">
+            <h1>Blog Posts in Minutes</h1>
+            <p class="ui-text-intro">
+              Save time and energy with AI-generated blog posts that only
+              require a topic from you.
+            </p>
+            <!-- CTA -->
+            <div class="ui-component-cta ui-layout-flex">
+              <a
+                href="/ai-helper"
+                role="link"
+                aria-label="#"
+                class="ui-component-button ui-component-button-normal ui-component-button-primary"
+                >Start Using Now</a
+              >
+              <p class="ui-text-note">
+                <small>Free to try for a week</small>
+              </p>
+            </div>
+          </div>
+          <!-- IMAGE -->
+          <img
+            src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+            loading="lazy"
+            alt="#"
+            class="ui-section-hero--image"
+          />
+        </div>
+      </section>
+      <section class="ui-section-customer">
+        <div class="ui-layout-container">
+          <div class="ui-section-customer__layout ui-layout-flex">
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/logos/facebook.svg"
+              alt="#"
+              class="ui-section-customer--logo"
+            />
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/logos/pinterest.svg"
+              alt="#"
+              class="ui-section-customer--logo"
+            />
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/logos/stripe.svg"
+              alt="#"
+              class="ui-section-customer--logo ui-section-customer--logo-str"
+            />
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/logos/dribbble.svg"
+              alt="#"
+              class="ui-section-customer--logo"
+            />
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/logos/behance.svg"
+              alt="#"
+              class="ui-section-customer--logo ui-section-customer--logo-bhn"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="ui-section-feature" id="featureAnchor">
+        <div class="ui-layout-container">
+          <div
+            class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2"
+          >
+            <!-- IMAGE -->
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-left"
+            />
+            <!-- FEATURE -->
+            <div>
+              <h2>AI-Generated Blog Posts</h2>
+              <p class="ui-text-intro">
+                Our AI tool can generate fully-formed, professional blog posts
+                in just minutes,
+              </p>
+              <ul
+                class="ui-component-list ui-component-list-feature ui-layout-grid"
+              >
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Save time and effort.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Eliminate writer's block.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Create high-quality content quickly.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  No need for tedious editing.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2"
+          >
+            <!-- FEATURE -->
+            <div>
+              <h2>SEO Optimization</h2>
+              <p class="ui-text-intro">
+                Our AI tool not only generates engaging content, but it also
+                optimizes your blog posts for search engines. This ensures that
+                your posts are more likely to rank higher in search results,
+                bringing in more traffic to your blog.
+              </p>
+              <ul
+                class="ui-component-list ui-component-list-feature ui-layout-grid"
+              >
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Improve search engine rankings.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Increase traffic to your blog.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Boost your online visibility.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Attract more potential customers.
+                </li>
+              </ul>
+            </div>
+            <!-- IMAGE -->
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-right"
+            />
+          </div>
+          <div
+            class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2"
+          >
+            <!-- IMAGE -->
+            <img
+              src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-left"
+            />
+            <!-- FEATURE -->
+            <div>
+              <h2>Customizable Settings</h2>
+              <p class="ui-text-intro">
+                Customize your AI-generated blog posts to fit your specific
+                needs. Adjust the length, add keywords to be highlighted, and
+                select a tone of voice to match your brand. Our algorithm will
+                adapt to your preferences, ensuring that your posts are a
+                perfect fit for your blog.
+              </p>
+              <ul
+                class="ui-component-list ui-component-list-feature ui-layout-grid"
+              >
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Add keywords to be highlighted.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Adjust the length with.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Tailor your posts to your target audience.
+                </li>
+                <li
+                  class="ui-component-list--item ui-component-list--item-check"
+                >
+                  Make your blog stand out from the competition.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ui-section-testimonial">
+        <div class="ui-layout-container">
+          <div class="ui-layout-column-6 ui-layout-column-center">
+            <h2>Wall of Love</h2>
+            <p class="ui-text-intro">Look what our users are saying.</p>
+          </div>
+          <div
+            class="ui-section-testimonial__layout ui-layout-grid ui-layout-grid-3"
+          >
+            <div class="ui-layout-column-4">
+              <img
+                src="/images/walloflove/david.jpg"
+                alt="david"
+                class="ui-section-testimonial--avatar"
+              />
+              <p class="ui-section-testimonial--quote ui-text-intro">
+                &ldquo;I've been using this AI tool for months now and I am
+                constantly impressed by the high-quality content it generates.
+                It has saved me so much time and effort, and my readers love the
+                results. Thank you for such a valuable tool!&rdquo;
+              </p>
+              <p class="ui-section-testimonial--author">
+                <strong>David Williams</strong><br /><small class="ui-text-note"
+                  >CEO of blog4all Company</small
+                >
+              </p>
+            </div>
+            <div class="ui-layout-column-4">
+              <img
+                src="/images/walloflove/michael.jpg"
+                alt="michael"
+                class="ui-section-testimonial--avatar"
+              />
+              <p class="ui-section-testimonial--quote ui-text-intro">
+                &ldquo;I was hesitant to try an AI tool for my blog, but I'm so
+                glad I did. The content this tool generates is professional and
+                engaging, and I've seen an increase in traffic and engagement
+                since using it. Highly recommend!&rdquo;
+              </p>
+              <p class="ui-section-testimonial--author">
+                <strong>Michael Garcia</strong><br /><small class="ui-text-note"
+                  >Head of Marketing</small
+                >
+              </p>
+            </div>
+            <div class="ui-layout-column-4">
+              <img
+                src="/images/walloflove/jessica.jpg"
+                alt="jessica"
+                class="ui-section-testimonial--avatar"
+              />
+              <p class="ui-section-testimonial--quote ui-text-intro">
+                &ldquo;I absolutely love this AI tool! It has revolutionized my
+                blog and made my life so much easier. The content it generates
+                is top-notch and my readers can't get enough. Thank you for such
+                a game-changing product!&rdquo;
+              </p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jessica Lee</strong><br /><small class="ui-text-note"
+                  >Senior Content Strategist</small
+                >
+              </p>
+            </div>
+            <div class="ui-layout-column-4">
+              <img
+                src="/images/walloflove/maria.jpg"
+                alt="maria"
+                class="ui-section-testimonial--avatar"
+              />
+              <p class="ui-section-testimonial--quote ui-text-intro">
+                &ldquo;I've been using this AI tool for a few months now and I
+                am blown away by the results. My blog has never looked better,
+                and I have so much more time to focus on other aspects of my
+                business. Thank you for such an amazing product!&rdquo;
+              </p>
+              <p class="ui-section-testimonial--author">
+                <strong>Maria Rodriguez</strong><br /><small
+                  class="ui-text-note"
+                  >Founder of GHI Consulting</small
+                >
+              </p>
+            </div>
+            <div class="ui-layout-column-4">
+              <img
+                src="/images/walloflove/olivia.jpg"
+                alt="olivia"
+                class="ui-section-testimonial--avatar"
+              />
+              <p class="ui-section-testimonial--quote ui-text-intro">
+                &ldquo;I'm so grateful for this AI tool! It has completely
+                transformed my blog and made my life so much easier. The content
+                it generates is professional and engaging, and my readers love
+                it. I highly recommend this product to anyone looking to
+                streamline their blogging process.&rdquo;
+              </p>
+              <p class="ui-section-testimonial--author">
+                <strong>Olivia Williams</strong><br /><small
+                  class="ui-text-note"
+                  >Blogger and Influencer</small
+                >
+              </p>
+            </div>
+            <div class="ui-layout-column-4">
+              <img
+                src="/images/walloflove/wang.jpg"
+                alt="wang"
+                class="ui-section-testimonial--avatar"
+              />
+              <p class="ui-section-testimonial--quote ui-text-intro">
+                &ldquo;I've been using this AI tool for a while now and I am
+                consistently impressed by the high-quality content it generates.
+                It has saved me so much time and effort, and my readers are
+                always blown away by the results. Thank you for such a valuable
+                tool!&rdquo;
+              </p>
+              <p class="ui-section-testimonial--author">
+                <strong>Wang Chen</strong><br /><small class="ui-text-note"
+                  >Digital Marketing Manager</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ui-section-close">
+        <div class="ui-layout-container">
+          <div class="ui-layout-column-6 ui-layout-column-center">
+            <h2>Speed up your work.</h2>
+            <p class="ui-text-intro">AI-Powered Blogging for the Modern World.</p>
+            <!-- CTA -->
+            <div class="ui-component-cta ui-layout-flex">
+              <a
+                href="/ai-helper"
+                role="link"
+                aria-label="ai helper"
+                class="ui-component-button ui-component-button-normal ui-component-button-primary"
+                >Get Started Now</a
+              >
+              <p class="ui-text-note">
+                <small>Free to try for a week</small>
+              </p>
+            </div>
+          </div>
+          <!-- IMAGE -->
+          <img
+            src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad-t.png"
+            loading="lazy"
+            alt="#"
+            class="ui-section-hero--image"
+          />
+        </div>
+      </section>
+    </main>
+    <footer role="contentinfo" class="ui-section-footer">
+      <div class="ui-layout-container">
+        <div class="ui-section-footer__layout ui-layout-flex">
+          <!-- COPYRIGHT -->
+          <p class="ui-section-footer--copyright ui-text-note">
+            <small>&copy; My Ai Helper</small>
+          </p>
+          <!-- MENU -->
+          <nav
+            role="navigation"
+            class="ui-section-footer--nav ui-section-footer--menu ui-layout-flex"
+          >
+            <a href="#featureAnchor" role="link" aria-label="#" class="ui-text-note"
+              ><small>Features</small></a
+            >
+            <a href="#" role="link" aria-label="#" class="ui-text-note"
+              ><small>Help</small></a
+            >
+            <a href="#" role="link" aria-label="#" class="ui-text-note"
+              ><small>Terms</small></a
+            >
+          </nav>
+          <!-- SOCIAL -->
+          <nav
+            role="navigation"
+            class="ui-section-footer--nav ui-section-footer--social ui-layout-flex"
+          >
+            <a href="#" role="link" aria-label="#">
+              <svg
+                viewBox="0 0 24 24"
+                height="16"
+                width="16"
+                fill="none"
+                stroke="#AEAEAE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                role="img"
+                aria-label="#"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                />
+              </svg>
+            </a>
+            <a href="#" role="link" aria-label="#">
+              <svg
+                viewBox="0 0 24 24"
+                height="16"
+                width="16"
+                fill="none"
+                stroke="#AEAEAE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                role="img"
+                aria-label="#"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path
+                  d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"
+                />
+              </svg>
+            </a>
+            <a href="#" role="link" aria-label="#">
+              <svg
+                viewBox="0 0 24 24"
+                height="16"
+                width="16"
+                fill="none"
+                stroke="#AEAEAE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                role="img"
+                aria-label="#"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path
+                  d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"
+                />
+              </svg>
+            </a>
+          </nav>
+        </div>
+      </div>
     </footer>
-    <div class="spinner"></div>
   </body>
 </html>
