@@ -14,6 +14,8 @@ const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
 const reGenerateBtn = document.getElementById('re-generateBtn');
 
+// change blog topic to blog title
+// add blog outline after topic
 // add text expender
 
 function onSubmit(e) {
