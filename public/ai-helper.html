@@ -17,11 +17,28 @@
   </head>
   <body>
     <header>
-      <a href="/">
-        <img src="/images/my-ai-helper-logo.png" alt="summarizer logo" />
-      </a>
+      <div>
+        <a href="/">
+          <img src="./images/logo.png" alt="airwrite logo" />
+        </a>
+      </div>
+      <div class="desktopMenu">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+      <div class="desktopMenu">
+        <a href="/" id="logoutBtn">Logout</a>
+      </div>
+      <div id="mobileMenu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
     </header>
-
+    <hr id="headerDivider" />
     <main>
       <div id="sectionContainer">
         <section class="properEnglish">
@@ -40,6 +57,7 @@
                   <option value="paraphraser">Paraphraser</option>
                   <option value="expand">Expand</option>
                 </select>
+                <hr />
               </label>
               <label for="toneOfVoice" id="toneOfVoiceLabel"
                 >Tone-of-Voice (Optional)
@@ -51,6 +69,7 @@
                   <option value="humorous">Humorous</option>
                   <option value="conversational">Conversational</option>
                 </select>
+                <hr />
               </label>
               <label for="keywords" id="keywordsLabel"
                 >Keywords (Optional)
@@ -59,7 +78,9 @@
                   id="keywords"
                   placeholder="AI, Agriculture, Tourism etc."
                 />
+                <hr />
               </label>
+
               <div class="sliderContainer">
                 <div class="sliderlabel">
                   <h3>Deterministic</h3>
@@ -75,6 +96,7 @@
                   class="slider"
                   id="myRange"
                 />
+                <hr />
                 <div class="sliderTokenContainer">
                   <div class="sliderlabel">
                     <h3>Short</h3>
@@ -90,6 +112,7 @@
                     class="slider"
                     id="mytokenRange"
                   />
+                  <hr />
                 </div>
               </div>
 

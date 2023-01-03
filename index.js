@@ -31,7 +31,7 @@ app.get('/ai-helper', function (req, res) {
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function(req, res){
-    res.status(404).send('🤖: 404 - Bep-Bop-Bip');
+    res.status(404).send('🤖: 404 - Bep-Bop-Bip - Page Not Found!');
   });
 
 
