@@ -14,9 +14,7 @@ const eraseButton = document.getElementById('eraseBtn');
 const copyBtn = document.getElementById('copyBtn');
 const reGenerateBtn = document.getElementById('re-generateBtn');
 
-// change blog topic to blog title
 // add blog outline after topic
-// add text expender
 
 function onSubmit(e) {
   e.preventDefault();
@@ -50,8 +48,10 @@ function onSubmit(e) {
 
   const prompt = document.querySelector('#prompt').value;
   const editedPrompt =
-    selectValue === 'blogTopic'
-      ? `Write 5 blog topic ideas about: ${prompt}`
+    selectValue === 'blogOutline'
+      ? `Write a blog outline for: ${prompt}`
+      : selectValue === 'blogTitle'
+      ? `Write 5 blog titles about: ${prompt}`
       : selectValue === 'blogIntro'
       ? `${keywordInput}Write a${voiceInput} SEO friendly blog intro about: ${prompt}`
       : selectValue === 'blogBody'
@@ -132,9 +132,12 @@ function removeSpinner() {
 function handleSelectChange() {
   const selectValue = selectElement.value;
 
-  selectValue === 'blogTopic'
-    ? ((title.textContent = 'Generate a Blog Topics'),
+  selectValue === 'blogTitle'
+    ? ((title.textContent = 'Generate a Blog Titles'),
       (textareaElement.placeholder = 'Describe your blog idea'))
+    : selectValue === 'blogOutline'
+    ? ((title.textContent = 'Generate Blog Outline'),
+      (textareaElement.placeholder = 'Enter your blog title'))
     : selectValue === 'blogIntro'
     ? ((title.textContent = 'Generate a Blog Intro'),
       (textareaElement.placeholder = 'Enter your blog topic/description'))
