@@ -301,10 +301,15 @@ footer a:hover {
   }
 
   header {
+    padding-inline: 0;
     display: flex;
     justify-content: space-between;
     width: 90%;
     margin-inline: auto;
+  }
+
+  #logoLink {
+    width: 140px;
   }
 
   header a {
@@ -331,6 +336,10 @@ footer a:hover {
     align-items: center;
     justify-content: center;
     font-weight: 400;
+  }
+
+  #logoutBtn:hover {
+    background-color: rgb(0, 0, 255);
   }
 
   .desktopMenu {
