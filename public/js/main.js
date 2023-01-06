@@ -116,6 +116,10 @@ async function generateText(
     }, 15);
 
     removeSpinner();
+
+    document
+      .getElementById('output')
+      .scrollIntoView({ block: 'center', behavior: 'smooth' });
   } catch (error) {
     console.log(error);
   }
